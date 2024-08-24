@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ComponenteHijoComponent } from './componente-hijo/componente-hijo.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ComponenteHijoComponent],
+  imports: [RouterOutlet, ComponenteHijoComponent, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] 
 })
 export class AppComponent {
   title = 'Calculadora';
@@ -15,15 +16,7 @@ export class AppComponent {
   valor2: number = 0;
   resultado: number = 0;
 
-  asignarValor1(evento: Event): void {
-    this.valor1 = Number((evento.target as HTMLInputElement).value);
-  }
-
-  asignarValor2(evento: Event): void {
-    this.valor2 = Number((evento.target as HTMLInputElement).value);
-  }
-
-  Resultado(resultado: number) {
+  Resultado(resultado: number): void {
     this.resultado = resultado;
   }
 }

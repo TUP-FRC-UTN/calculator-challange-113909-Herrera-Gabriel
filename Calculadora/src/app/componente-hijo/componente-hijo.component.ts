@@ -5,15 +5,14 @@ import { Component, EventEmitter, Input, Output  } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './componente-hijo.component.html',
-  styleUrl: './componente-hijo.component.css'
+  styleUrls: ['./componente-hijo.component.css'] 
 })
-
 export class ComponenteHijoComponent {
   @Input() valor1!: number;
   @Input() valor2!: number;
   @Output() resultado = new EventEmitter<number>();
 
-  calcular(operacion: string) {
+  calcular(operacion: string): void {
     let res: number;
     switch (operacion) {
       case '+':
